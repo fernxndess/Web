@@ -104,10 +104,3 @@ export default defineConfig({
     onBuildStarting: [() => import('@adonisjs/vite/build_hook')],
   },
 })
-
-{
-  providers: [
-    // ...other providers
-    () => import('@adonisjs/core/providers/edge_provider')
-  ]
-}
