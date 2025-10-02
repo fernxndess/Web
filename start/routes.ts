@@ -9,4 +9,10 @@
 
 import router from '@adonisjs/core/services/router'
 
-router.on('/').render('pages/home')
+const ProductsController = () => import('#controllers/products_controller')
+
+router.resource('/products', ProductsController).as('products')
+
+router.get('/', ({ view }) => {
+  return view.render('pages/home')
+})
