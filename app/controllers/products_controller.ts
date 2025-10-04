@@ -5,6 +5,7 @@ import Product from '#models/products'
 import { createProductValidator } from '#validators/products'
 
 export default class ProductsController {
+  
   public async index({ view }: HttpContext) {
     const products = await Product.all()
 

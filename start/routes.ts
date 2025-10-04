@@ -13,6 +13,7 @@ const ProductsController = () => import('#controllers/products_controller')
 
 router.resource('/products', ProductsController).as('products')
 
-router.get('/', ({ view }) => {
-  return view.render('pages/home')
+
+router.get('/home', async ({ view }) => {
+  return view.render('home')
 })
