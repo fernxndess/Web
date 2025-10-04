@@ -5,11 +5,11 @@ export default class extends BaseSchema {
 
   async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
 
+      table.increments('id')
       table.string('name', 255)
       table.decimal('price', 2)
-      table.text('description')
+      table.string('description', 255)
 
       table.timestamp('created_at')
       table.timestamp('updated_at')

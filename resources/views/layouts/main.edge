@@ -1,0 +1,70 @@
+{{-- resources/views/layouts/main.edge --}}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{-- O título é definido pela view filha usando @set('title', '...') --}}
+  <title>{{ title ?? 'AdonisJS App' }}</title> 
+  
+  {{-- Link para um framework CSS simples (opcional) --}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  
+  {{-- Seção para CSS customizado ou mais links. A view filha pode injetar conteúdo aqui. --}}
+  @!section('styles') 
+</head>
+<body>
+
+  {{-- 1. Barra de Navegação (Exemplo simples com Bulma) --}}
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <h1 class="title is-4 has-text-white">Loja Adonis</h1>
+      </a>
+    </div>
+    
+    <div id="navbarBasicExample" class="navbar-menu is-active">
+      <div class="navbar-start">
+        <a class="navbar-item" href="{{ route('products.index') }}">
+          Produtos
+        </a>
+        <a class="navbar-item" href="{{ route('products.create') }}">
+          Criar Produto
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  {{-- 2. Conteúdo Principal (Seção obrigatória) --}}
+  <main class="section">
+    <div class="container">
+      
+      {{-- Mensagens Flash (Geralmente para sucesso ou erro global) --}}
+      @if(session.has('success'))
+        <div class="notification is-success">
+          {{ session.flashMessages.get('success') }}
+        </div>
+      @endif
+
+      {{-- 
+        A tag @!section('body') é onde a view filha (@section('body'))
+        irá injetar todo o seu conteúdo específico. É a parte mais importante.
+      --}}
+      @!section('body') 
+    </div>
+  </main>
+
+  {{-- 3. Rodapé --}}
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Aplicação de Exemplo AdonisJS & Edge. © {{ new Date().getFullYear() }}
+      </p>
+    </div>
+  </footer>
+
+  {{-- Seção para scripts (Geralmente no final do body para otimização) --}}
+  @!section('scripts') 
+
+</body>
+</html>
