@@ -2,9 +2,9 @@
 <html lang="pt-br">
 <head>
   <div class="container">
-    <h1>Criar Novo Produto</h1>
-
-    <form action="{{ route('products.store') }}" method="POST">
+    <h1>Editar Produto</h1>
+    
+    <form action="{{ route('products.update', { id: product.id }) }}" method="PATCH">
       
       {{ csrfField() }} 
 
@@ -40,16 +40,13 @@
 
       <div>
         <label for="description">Descrição</label>
-        <textarea 
-          id="description" 
-          name="description"
-        >{{ flashMessages.get('description', '') }}</textarea>
+        <textarea id="description" name="description"> {{ flashMessages.get('description', '') }} </textarea>
         @if(flashMessages.has('errors.description'))
           <p style="color: red;">{{ flashMessages.get('errors.description') }}</p>
         @endif
       </div>
       
-      <button type="submit">Salvar Produto</button>
+      <button type="submit">Confirmar</button>
       
     </form>
   </div>

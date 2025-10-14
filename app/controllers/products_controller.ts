@@ -25,7 +25,7 @@ export default class ProductsController {
   public async edit({ params, view }: HttpContext) {
     const product = await Product.findOrFail(params.id)
 
-    return view.render('pages/products/create', { product })
+    return view.render('pages/products/edit', { product })
   }
 
   public async store({ request, response }: HttpContext) {
@@ -33,7 +33,7 @@ export default class ProductsController {
 
     const product = await Product.create(payload)
 
-    return response.redirect().toRoute('products.show', { id: product.id })
+    return response.redirect().toRoute('products.index', { id: product.id })
   }
 
   public async update({ params, request, response }: HttpContext) {
@@ -46,7 +46,7 @@ export default class ProductsController {
 
     return response.redirect().toRoute('products.show', { id: product.id })
   }
-
+  
   public async destroy({ params, response }: HttpContext) {
     const product = await Product.findOrFail(params.id)
 
