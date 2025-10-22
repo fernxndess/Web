@@ -1,161 +1,57 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Produtos</title>
+@layouts.app()
 
-  <style>
-      body {
-          font-family: 'Arial', sans-serif;
-          background-color: #c2c2c2;
-          margin: 0;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          min-height: 100vh;
-          padding: 20px;
-          gap: 20px;
-          box-sizing: border-box;
-      }
-      .title-container {
-          background-color: #ffffff;
-          padding: 40px;
-          border-radius: 16px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-          width: 100%;
-          max-width: 800px;
-          text-align: center;
-          font-size: 1.2em;
-          margin-top: ;
-          margin-bottom: 1px;
-      }
+  @slot('main')
+  <body>
+    <div>
+      <h1 class="h1">Lista de Produtos</h1>
+    </div>
 
-      .container {
-          background-color: #ffffff;
-          padding: 40px;
-          border-radius: 12px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-          width: 100%;
-          max-width: 800px;
-          text-align: center;
-      }
+    <div class="overflow-x-auto">
+      <table class="table">
+        
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th></th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          @each(product in products)
+            <tr>
+              <td>{{ product.name }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.price }}</td>
+              <td>
 
-      table {
-          width: 100%;
-          border-collapse: collapse;
-          margin-top: 20px;
-          text-align: left;
-      }
-      
-      th, td {
-          padding: 12px 15px;
-          border-bottom: 1px solid #dee2e6;
-      }
+              <div style="display: flex; gap: 5px;">
 
-      th {
-          background-color: #f8f9fa;
-          font-weight: bold;
-      }
+                <a href="{{ route('products.show', { id: product.id }) }}" class="btn btn-action">Ver</a>
+                <a href="{{ route('products.edit', { id: product.id }) }}" class="btn btn-action">Editar</a>
 
-      .actions-cell {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-      }
+                @form({action: route('products.destroy', { id: product.id }), method: 'DELETE'})
+                  <button type="submit" class="btn btn-action btn-danger">Deletar</button>  
+                @end
 
-      h1 {
-          color: #343a40;
-          font-size: 2.5em;
-          margin-top: 0;
-          margin-bottom: 20px;
-      }
-      
-      .btn {
-          display: inline-block;
-          padding: 12px 25px;
-          background-color: #007bff;
-          color: white;
-          text-decoration: none;
-          border-radius: 6px;
-          font-weight: bold;
-          transition: background-color 0.3s ease;
-          border: none;
-          cursor: pointer;
-          font-size: 1rem;
-      }
+              </div>
 
-      .btn:hover {
-          background-color: #0056b3;
-      }
+            </td>
+            </td>
+            </tr>
+          @endeach
+        </tbody>
 
-      .btn-action {
-          padding: 6px 12px;
-          font-size: 0.875rem;
-      }
-      .btn-action2 {
-          padding: 14px 20px;
-          font-size: 1.2rem;
-      }
-      
-      .btn-danger {
-          background-color: #dc3545;
-      }
-
-      .btn-danger:hover {
-          background-color: #c82333;
-      }
-  </style>
-
-</head>
-
-<body>
-  <div class="title-container">
-    <h1>Lista de Produtos</h1>
-  </div>
-
-  <div class="container">
-    <table>
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Descrição</th>
-          <th>Preço</th>
-      </thead>
-
-      <tbody>
-        @each(product in products)
-        <tr>
-          <td>{{ product.name }}</td>
-          <td>{{ product.description }}</td>
-          <td>{{ product.price }}</td>
-          <td class="actions-cell"> 
-           
-            <a href="{{ route('products.edit', { id: product.id }) }}" class="btn btn-action">Editar</a>
-            <a href="{{ route('products.show', { id: product.id }) }}" class="btn btn-action">Ver</a>
-
-            @form({ action: route('products.destroy', { id: product.id }),  method: 'POST' })
-              <input type="hidden" name="_method" value="DELETE">
-              <button type="submit" class="btn btn-action btn-danger">
-                Deletar
-              </button>
-            @end
-
-          </td>
-        </tr>
-        @end
-      </tbody>
       </table>
+    </div>
 
-     <a href="/products/create" class="btn btn-action2" style="margin-top: 50px;">
+    <div style="margin-top: 30px;">
+      <span>
+        <a href="{{ route('products.create') }}" class="button">Adicionar Produto</a>
+      </span>
+    </div>
+  </body>
+  @end
 
-      Criar Novo Produto
-    
-    </a>
-
-  </div>
-  
-</body>
-
-</html>
+@end

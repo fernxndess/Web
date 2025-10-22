@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -46,6 +47,17 @@
         >{{ flashMessages.get('description', '') }}</textarea>
         @if(flashMessages.has('errors.description'))
           <p style="color: red;">{{ flashMessages.get('errors.description') }}</p>
+        @endif
+      </div>
+
+      <div>
+        <label for="category">Descrição</label>
+        <textarea 
+          id="category" 
+          name="category"
+        >{{ flashMessages.get('category', '') }}</textarea>
+        @if(flashMessages.has('errors.category'))
+          <p style="color: red;">{{ flashMessages.get('errors.category') }}</p>
         @endif
       </div>
       

@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
 import adonisjs from '@adonisjs/vite/client'
 
 export default defineConfig({
   plugins: [
     adonisjs({
+      
       /**
        * Entrypoints of your application. Each entrypoint will
        * result in a separate bundle.
@@ -15,5 +17,7 @@ export default defineConfig({
        */
       reload: ['resources/views/**/*.edge'],
     }),
+    tailwindcss(),
+
   ],
 })

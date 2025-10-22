@@ -14,6 +14,7 @@ export default class Product extends BaseModel {
   @column()
   declare description: string
 
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
