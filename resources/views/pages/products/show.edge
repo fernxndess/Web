@@ -1,24 +1,32 @@
-@layouts.app({ title: 'oi' })
+@layouts.app({ title: 'Descrição' })
 
 @slot('main')
-<div></div>
-  <h1>Produto</h1>
-</div>
-<div>
-  <span>
-    {{ product.name }}
-  </span>
-  <span>
-    {{ product.price }}
-  </span>
-  <span>
-    {{ product.description }}
-  </span>
 
-  @each(image in product.images)
-    <img src="{{ route('images.show', { name: image.name })}}" />
-  @end
-</div>
+  <h1 class="h1">Detalhes do Produto</h1>
+
+  <div class="product-details-container">
+    
+   <div class="detail-item">
+      <strong class="detail-label">Nome do Produto</strong>
+      <span class="detail-value">{{ product.name }}</span>
+    </div>
+
+    <div class="detail-item">
+      <strong class="detail-label">Preço</strong>
+      <span class="detail-value price">{{ new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(product.price) }}</span>
+    </div>
+
+    <div class="detail-item">
+      <strong class="detail-label">Descrição</strong>
+      <p class="detail-description">{{ product.description }}</p>
+    </div>
+
+  </div>
+
+  <div style="margin-top: 20px;">
+    <a href="{{ route('products.index') }}" class="button">Voltar</a>
+
 @end
 
+@css
 @end

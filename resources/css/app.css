@@ -58,3 +58,64 @@
   font-size: 1.05rem;
   line-height: 2;
 }
+
+.h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.product-details-container {
+    max-width: 800px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem; 
+}
+
+
+.detail-item {
+    margin-bottom: 1.25rem; 
+}
+
+.detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    display: block; 
+    font-size: 0.9rem; 
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.detail-value {
+    font-size: 1.5rem; 
+    color: #111;
+}
+
+
+.detail-value.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007b5e; 
+}
+
+.label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    font-size: 1.2rem;
+}
+
+.input, .textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
