@@ -1,68 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-Vindo(a)!</title>
+@layouts.app({title: 'vlrSKINS - Home'}) 
     
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa; /* Fundo cinza claro */
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Ocupa a altura total da tela */
-            text-align: center;
-        }
-        .welcome-box {
-            background-color: #ffffff;
-            padding: 40px 60px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 90%;
-        }
-        h1 {
-            color: #343a40; /* Cor escura para o título */
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        p {
-            color: #6c757d; /* Cor mais suave para o texto */
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #007bff; /* Azul primário */
-            color: white;
-            text-decoration: none; /* Remove sublinhado */
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
+@slot('main')
 
-<div class="welcome-box">
-    <h1>Bem-Vindo(a)!</h1>
+
+<div class="page-background">
+
+  <div class="welcome-card">
+  
+    <h2 class="welcome-title">Bem-Vindo(a)!</h2>
     
-    <p>
-        Obrigado por utilizar nosso serviço. Clique no botão abaixo para começar a explorar todas as funcionalidades do nosso painel de controle.
+    <p class="welcome-subtitle">
+      Obrigado pela preferência. Entre ou crie sua conta no botão abaixo.
     </p>
-
-    <a href="/products" class="btn">
-        Produtos
-    </a>
+    
+    <div class="button-group">
+      <a href="{{ route('users.login') }}" class="button">Login</a>
+      <a href="{{ route('users.create') }}" class="button">Criar Conta</a>
+    </div>
+    
+  </div>
+  
 </div>
 
-</body>
-</html>
+@end
+@end

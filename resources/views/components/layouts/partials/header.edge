@@ -2,17 +2,18 @@
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 justify-between">
       <div class="flex">
-        <div class="flex shrink-0 items-center">
-          <a href="{{route('/')}}" class="px-1 pt-1 text-sm font-medium text-gray-900"> Início </a>
+        <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
+          <a href="{{route('/')}}" class="nav-link {{ request.matchesRoute('/') ? 'active' : '' }} inline-flex items-center border-b-2 border-indigo-600 px-1 pt-1 text-sm font-medium text-gray-900"> Início </a>
         </div>
         <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
-          <a href="{{route('/products')}}" aria-current="page" class="inline-flex items-center border-b-2 border-indigo-600 px-1 pt-1 text-sm font-medium text-gray-900">Produtos</a>
+          <a href="{{route('/products')}}" aria-current="page" class="nav-link {{ request.matchesRoute('/products') ? 'active' : '' }} inline-flex items-center border-b-2 border-indigo-600 px-1 pt-1 text-sm font-medium text-gray-900">Produtos</a>
         </div>
       </div>
-      <div class="hidden sm:ml-6 sm:flex sm:items-center">
+      <div class="user-profile-area flex items-center space-x-1.5">
         <img class="size-8 shrink-0 object-cover rounded-full" alt="@hunvreus" src="https://github.com/hunvreus.png">
-        <button type="button" class="ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-          User Menu
+        <a href="{{ route('/users') }}" class="user-menu-button {{ request.matchesRoute('/users') ? 'active' : '' }} inline-flex items-center border-b-2 border-indigo-600 px-3 pt-1 text-sm font-medium text-gray-900">
+          User
+        </a>
         </button>
       </div>
     </div>
