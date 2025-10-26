@@ -43,22 +43,6 @@
   background-color: #c37d84;
 }
 
-.button {
-  display: inline; 
-  justify-content: center;
-  padding: 6px 16px;
-  background-color: #402980;
-  color: white;
-  text-decoration: none;
-  border-radius: 20px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  border: none;
-  cursor: pointer;
-  font-size: 1.05rem;
-  line-height: 2;
-}
-
 .h2 {
     font-size: 1.8rem;
     font-weight: bold;
@@ -129,8 +113,8 @@
 }
 
 .nav-link.active {
-  color: #6D28D9;
-  border-bottom-color: #6D28D9;
+  color: #ff0000;
+  border-bottom-color: #ff0000;
   font-weight: 500; 
 }
 
@@ -141,12 +125,12 @@
 }
 
 .user-menu-button.active {
-  border-color: #6D28D9;
-  box-shadow: 0 0 0 2px #6D28D9;
+  border-color: #ff0000;
+  box-shadow: 0 0 0 2px #ff0000;
 }
 
 .user-menu-button:hover {
-  border-color: #A78BFA;
+  border-color: #da6e6e;
 }
 
 .page-background {
@@ -154,7 +138,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f3f4f6;
+  background-color: #ffffff;
   font-family: system-ui, sans-serif;
   padding: 16px;
 }
@@ -166,7 +150,6 @@
   text-align: center;
   max-width: 450px;
   width: 100%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.02);
 }
 
 .welcome-title {
@@ -183,9 +166,119 @@
   margin: 0 0 24px 0;
 }
 
+.page-background {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;   /* Centraliza verticalmente */
+  min-height: calc(100vh - 400px); 
+}
+
+.welcome-container {
+  display: flex; /* Habilita flexbox para alinhar itens lado a lado */
+  align-items: center; /* Alinha os itens (colunas) verticalmente ao centro */
+  gap: 50px; /* Espaço entre as duas colunas */
+  max-width: 1200px; /* Largura máxima para o conteúdo */
+  width: 90%; /* Ocupa 90% da largura disponível, mas não mais que 1200px */
+  padding: 40px; /* Espaçamento interno */
+  background-color: #fff; /* Fundo branco para o container geral, se quiser um card maior */
+  border-radius: 10px; /* Cantos arredondados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilos para a caixa da esquerda (Bem-vindo e botões) */
+.welcome-card-left {
+  flex: 1; /* Permite que esta div ocupe o espaço disponível */
+  padding: 30px; /* Espaçamento interno da caixa */
+  background-color: #fefefe; /* Fundo branco para a caixa, diferente do container se quiser */
+  border-radius: 8px; /* Cantos arredondados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra mais leve */
+  text-align: left; /* Alinha o texto à esquerda dentro da caixa */
+  max-width: 500px; /* Limita a largura da caixa, ajuste conforme necessário */
+  margin: 0 auto; /* Centraliza a caixa dentro de seu espaço flexível */
+}
+
+.welcome-title {
+  font-size: 2.5em; /* Tamanho maior para o título */
+  color: #333;
+  margin-bottom: 15px;
+  text-align: left; /* Garante que o título esteja à esquerda */
+}
+
+.welcome-subtitle {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  text-align: left; /* Garante que o subtítulo esteja à esquerda */
+}
+
 .button-group {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column; /* Botões um abaixo do outro */
+  gap: 15px; /* Espaçamento entre os botões */
+}
+
+.button {
+  display: block; /* Garante que o <a> se comporte como um bloco para ocupar a largura */
+  padding: 12px 25px;
+  background-color: #ff0000; /* Cor do botão (seu vermelho atual) */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Botões ocupam a largura total do seu container */
+  max-width: 250px; /* Limita a largura máxima dos botões */
+  margin: 0; /* Remove margens padrão se houver */
+}
+
+.button:hover {
+  background-color: #ff0000; /* Escurece no hover */
+}
+
+/* Estilos para a div da direita (logotipo) */
+.logo-right {
+  flex: 1; /* Permite que esta div ocupe o espaço disponível */
+  display: flex;
+  justify-content: center; /* Centraliza a logo horizontalmente */
+  align-items: center; /* Centraliza a logo verticalmente */
+}
+
+.welcome-logo {
+  max-width: 350px; /* Tamanho da sua logo, ajuste conforme necessário */
+  height: auto;
+  display: block; /* Remove espaços extras se a imagem for inline */
+}
+
+/* Medias queries para telas menores */
+@media (max-width: 768px) {
+  .welcome-container {
+    flex-direction: column; /* Coloca os itens um abaixo do outro em telas pequenas */
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .welcome-card-left, .logo-right {
+    flex: none; /* Remove o flex grow para que ocupem a largura total */
+    width: 100%;
+    max-width: none; /* Remove o limite de largura para ocupar o espaço disponível */
+  }
+  
+  .welcome-card-left {
+    padding: 20px;
+  }
+
+  .welcome-title {
+    font-size: 2em;
+  }
+
+  .welcome-subtitle {
+    font-size: 1em;
+  }
+
+  .welcome-logo {
+    max-width: 250px; /* Ajusta o tamanho da logo para telas menores */
+  }
 }

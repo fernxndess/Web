@@ -1,26 +1,25 @@
-@layouts.app({title: 'vlrSKINS - Home'}) 
-    
+@layouts.app({title: 'vlrSKINS.com - Home'})
+
 @slot('main')
 
-
 <div class="page-background">
+  <div class="welcome-container"> 
+    <div class="welcome-card-left"> 
+      <h2 class="welcome-title">Bem-Vindo(a)!</h2>
+      <p class="welcome-subtitle">Obrigado pela preferência. Entre ou crie sua conta nos botões abaixo.</p>
 
-  <div class="welcome-card">
-  
-    <h2 class="welcome-title">Bem-Vindo(a)!</h2>
-    
-    <p class="welcome-subtitle">
-      Obrigado pela preferência. Entre ou crie sua conta no botão abaixo.
-    </p>
-    
-    <div class="button-group">
-      <a href="{{ route('users.login') }}" class="button">Login</a>
-      <a href="{{ route('users.create') }}" class="button">Criar Conta</a>
-    </div>
-    
+      <div class="button-group">
+        <a href="{{ route('users.index') }}" class="button">Login</a>
+        <a href="{{ route('users.create') }}" class="button">Criar Conta</a>
+      </div>
+
+      </div> <div class="logo-right"> 
+        <img src="{{ asset('images/logo-site.png') }}" alt="Logotipo Vlrskins" class="welcome-logo">
+      </div>
+
+    </div> 
+
   </div>
-  
-</div>
 
 @end
 @end
