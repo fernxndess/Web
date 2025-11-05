@@ -1,4 +1,4 @@
-@layouts.app({ title: 'Descrição' })
+@layouts.app({ title: 'Detalhes do produto' })
 
 @slot('main')
 
@@ -19,6 +19,21 @@
     <div class="detail-item">
       <strong class="detail-label">Descrição</strong>
       <p class="detail-description">{{ product.description }}</p>
+    </div>
+
+    <div class="product-images mt-6 border-t pt-6">
+      <strong class="detail-label block text-sm font-medium text-gray-500 mb-3">Imagens</strong>
+      
+      @if(product.images && product.images.length > 0)
+        
+        @each(image in product.images)
+          <img src="{{ route('images.show', { name: image.name })}}" alt="Imagem de {{ product.name }}"class="w-full max-w-md mx-auto rounded-lg shadow-md mb-4">
+        @endeach
+      
+      @else
+        <p class="text-gray-500">Este produto ainda não possui imagens.</p>
+      @endif
+      
     </div>
 
   </div>

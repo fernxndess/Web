@@ -1,68 +1,73 @@
-@layouts.app({title: 'Criar Produto'}) 
-  
+@layouts.app({title: 'Criar conta'})
+
 @slot('main')
-  
+<div class="flex min-h-[80vh] flex-col justify-center py-12 sm:px-6 lg:px-8">
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <div class="container">
-    <h1 class="h1">Criar nova conta</h1>
+  <form action="{{ route('users.store') }}" method="POST">
 
-    <form action="{{ route('products.store') }}" method="POST">
-      
-      {{ csrfField() }} 
+    {{ csrfField() }}
 
-      <div style="margin-top: 20px;">
-        <label for="name" class="label">Nome</label>
-        <input class="input"
-          type="text" 
-          id="name" 
-          name="name" 
-          required 
-          value="{{ flashMessages.get('name', '') }}"
-        >
-        @if(flashMessages.has('errors.name'))
-          <p style="color: red;">{{ flashMessages.get('errors.name') }}</p>
-        @endif
+    <div class="text-center sm:mx-auto sm:w-full sm:max-w-md">
+      <h1 class="text-3xl font-bold text-gray-900">
+        Criar Conta
+      </h1>
+    </div>
+
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <div>
+        <label for="fullName" class="block text-sm font-medium leading-6 text-gray-900">Nome Completo</label>
+        <div class="mt-2">
+          <input id="fullName" name="fullName" type="text" autocomplete="name" required
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 ...">
+        </div>
+
+      </div>
+      <div class="mt-6">
+        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
+        <div class="mt-2">
+          <input id="email" name="email" type="email" autocomplete="email" required
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6">
+        </div>
       </div>
 
-       <div style="margin-top: 20px;">
-        <label for="name" class="label">Email</label>
-        <input class="input"
-          type="text" 
-          id="name" 
-          name="name" 
-          required 
-          value="{{ flashMessages.get('name', '') }}"
-        >
-        @if(flashMessages.has('errors.name'))
-          <p style="color: red;">{{ flashMessages.get('errors.name') }}</p>
-        @endif
+      <div>
+        <div class="mt-6 flex items-center justify-between">
+          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Senha</label>
+        </div>
+        <div class="mt-2">
+          <input id="password" name="password" type="password" autocomplete="current-password" required
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6">
+        </div>
       </div>
-     <div style="margin-top: 20px;">
-        <label for="name" class="label">Senha</label>
-        <input class="input"
-          type="text" 
-          id="name" 
-          name="name" 
-          required 
-          value="{{ flashMessages.get('name', '') }}"
-        >
-        @if(flashMessages.has('errors.name'))
-          <p style="color: red;">{{ flashMessages.get('errors.name') }}</p>
-        @endif
+      <div class="mt-6">
+        <label for="password_confirmation" class="block text-sm font-medium leading-6 text-gray-900">Confirmar
+          Senha</label>
+        <div class="mt-2">
+          <input id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password"
+            required
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 ...">
+        </div>
       </div>
 
-  
-    
-      <div style="margin-top: 50px;">
-      <button type="submit" class="button">Criar</button>
+      <div class="mt-6">
+        <button type="submit"
+          class="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+          Criar Conta
+        </button>
       </div>
-      
-    </form>
-  </div>
-</body>
-</html>
+
+      <div class="m-auto mt-6 w-fit md:mt-8">
+        <span class="m-auto">
+          Já possui conta?
+          <a class="font-semibold leading-6 text-red-600 hover:text-red-500" href="{{ route('auth.login') }}">
+            Login
+          </a>
+        </span>
+      </div>
+    </div>
+  </form>
+</div>
+
+
 @end
 @end

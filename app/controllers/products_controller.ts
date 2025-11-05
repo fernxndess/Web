@@ -1,8 +1,11 @@
 import type { HttpContext } from '@adonisjs/core/http'
-
-import Product from '#models/products'
-
 import { createProductValidator } from '#validators/products'
+import { cuid } from '@adonisjs/core/helpers'
+import app from '@adonisjs/core/services/app'
+
+
+import Product from '#models/products' 
+
 
 export default class ProductsController {
   
@@ -28,14 +31,31 @@ export default class ProductsController {
     return view.render('pages/products/edit', { product })
   }
 
-  public async store({ request, response }: HttpContext) {
+  public async store({ request, response, session }: HttpContext) {
+    
     const payload = await request.validateUsing(createProductValidator)
 
-    const product = await Product.create(payload)
+    const imageName = `${cuid()}.${payload.image.extname}`
 
+    await payload.image.move(app.makePath('public/uploads/products'), {
+      name: imageName,
+    })
+
+    const product = await Product.create({
+      name: payload.name,
+      description: payload.description,
+      price: payload.price,
+    })
+
+    await product.related('images').create({
+      name: imageName,
+    })
+
+    session.flash('success', 'Produto criado com sucesso!')
+    
     return response.redirect().toRoute('products.index', { id: product.id })
   }
-
+  
   public async update({ params, request, response }: HttpContext) {
     const product = await Product.findOrFail(params.id)
 
