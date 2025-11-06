@@ -3,8 +3,9 @@
 @slot('main')
 <div class="flex min-h-[80vh] flex-col justify-center py-12 sm:px-6 lg:px-8">
 
-  <form action="{{ route('users.store') }}" method="POST">
+  @let(url = user ? route('users.update', { id: user.id }, { qs: { _method: 'PATCH' } }) : route('users.store'))
 
+  <form action="{{ url }}" method="POST">
     {{ csrfField() }}
 
     <div class="text-center sm:mx-auto sm:w-full sm:max-w-md">

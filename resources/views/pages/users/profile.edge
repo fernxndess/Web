@@ -1,0 +1,43 @@
+@layouts.app({ title: 'Meu Perfil' })
+
+@slot('main')
+  <div class="container mx-auto p-8">
+    
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">
+      Olá, {{ user.fullName }}!
+    </h1>
+    
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-3">Seus Dados</h2>
+      
+      <div class="mb-2">
+        <strong class="text-gray-600">Nome:</strong>
+        <span class="text-gray-800">{{ user.fullName }}</span>
+      </div>
+      
+      <div class="mb-2">
+        <strong class="text-gray-600">Email:</strong>
+        <span class="text-gray-800">{{ user.email }}</span>
+      </div>
+      
+      <div class="mb-2">
+        <strong class="text-gray-600">Data de criação:</strong>
+        <span class="text-gray-800">{{ user.createdAt.toLocaleString() }}</span>
+      </div>
+
+      <div style="display: flex; gap: 5px;">
+
+      <a href="{{ route('users.edit', { id: user.id }) }}" class="btn btn-action">Editar Perfil</a>
+
+      @form({ action: route('users.destroy', { id: user.id }, { qs: { _method: 'DELETE' } }) })
+        <button type="submit" class="btn btn-action btn-danger">Deletar Conta</button>  
+      @endform
+      
+      </div>
+
+    </div>
+
+    
+  </div>
+@end
+@end

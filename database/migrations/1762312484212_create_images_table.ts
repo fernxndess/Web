@@ -1,5 +1,3 @@
-// database/migrations/...._create_images_table.ts
-
 import { BaseSchema } from '@adonisjs/lucid/schema'
 
 export default class extends BaseSchema {
