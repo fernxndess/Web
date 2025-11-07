@@ -16,7 +16,7 @@
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div>
-        <label for="fullName" class="block text-sm font-medium leading-6 text-gray-900 px-3">Nome Completo</label>
+        <label for="fullName" class="block text-sm font-medium leading-6 text-gray-900">Nome Completo</label>
         <div class="mt-2">
           <input id="fullName" name="fullName" type="text" autocomplete="name" required value="{{ old('fullName', user ? user.fullName : '') }}"
             class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-ray-300 ...">
@@ -33,7 +33,7 @@
 
       <div>
         <div class="mt-6 flex items-center justify-between">
-          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Senha</label>
+          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">{{ user ? 'Nova senha' : 'Senha' }}</label>
         </div>
         <div class="mt-2">
           <input id="password" name="password" type="password" autocomplete="current-password" required
@@ -41,8 +41,7 @@
         </div>
       </div>
       <div class="mt-6">
-        <label for="password_confirmation" class="block text-sm font-medium leading-6 text-gray-900">Confirmar
-          Senha</label>
+        <label for="password_confirmation" class="block text-sm font-medium leading-6 text-gray-900">{{ user ? 'Confirmar Nova Senha' : 'Confirmar Senha' }}</label>
         <div class="mt-2">
           <input id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password"
             required
