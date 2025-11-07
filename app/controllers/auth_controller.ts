@@ -24,7 +24,7 @@ export default class AuthController {
     await auth.use('web').login(user)
 
     session.flash('success', 'Login realizado com sucesso!')
-    return response.redirect().toRoute('home')
+    return response.redirect().toRoute('show.profile')
   }
 
   public async logout({ auth, response }: HttpContext) {
