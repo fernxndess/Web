@@ -168,40 +168,39 @@
 
 .page-background {
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center;   /* Centraliza verticalmente */
+  justify-content: center;
+  align-items: center;
   min-height: calc(100vh - 400px); 
 }
 
 .welcome-container {
-  display: flex; /* Habilita flexbox para alinhar itens lado a lado */
-  align-items: center; /* Alinha os itens (colunas) verticalmente ao centro */
-  gap: 50px; /* Espaço entre as duas colunas */
-  max-width: 1200px; /* Largura máxima para o conteúdo */
-  width: 90%; /* Ocupa 90% da largura disponível, mas não mais que 1200px */
-  padding: 40px; /* Espaçamento interno */
-  background-color: #fff; /* Fundo branco para o container geral, se quiser um card maior */
-  border-radius: 10px; /* Cantos arredondados */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  width: 90%;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para a caixa da esquerda (Bem-vindo e botões) */
 .welcome-card-left {
-  flex: 1; /* Permite que esta div ocupe o espaço disponível */
-  padding: 30px; /* Espaçamento interno da caixa */
-  background-color: #fefefe; /* Fundo branco para a caixa, diferente do container se quiser */
-  border-radius: 8px; /* Cantos arredondados */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra mais leve */
-  text-align: left; /* Alinha o texto à esquerda dentro da caixa */
-  max-width: 500px; /* Limita a largura da caixa, ajuste conforme necessário */
-  margin: 0 auto; /* Centraliza a caixa dentro de seu espaço flexível */
+  flex: 1;
+  padding: 30px;
+  background-color: #fefefe;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .welcome-title {
-  font-size: 2.5em; /* Tamanho maior para o título */
+  font-size: 2.5em;
   color: #333;
   margin-bottom: 15px;
-  text-align: left; /* Garante que o título esteja à esquerda */
+  text-align: left;
 }
 
 .welcome-subtitle {
@@ -209,19 +208,19 @@
   color: #666;
   margin-bottom: 30px;
   line-height: 1.6;
-  text-align: left; /* Garante que o subtítulo esteja à esquerda */
+  text-align: left;
 }
 
 .button-group {
   display: flex;
-  flex-direction: column; /* Botões um abaixo do outro */
-  gap: 15px; /* Espaçamento entre os botões */
+  flex-direction: column;
+  gap: 15px;
 }
 
 .button {
-  display: block; /* Garante que o <a> se comporte como um bloco para ocupar a largura */
+  display: block;
   padding: 12px 25px;
-  background-color: #ff0000; /* Cor do botão (seu vermelho atual) */
+  background-color: #ff0000;
   color: #fff;
   text-decoration: none;
   border-radius: 8px;
@@ -229,41 +228,39 @@
   font-size: 1.1em;
   font-weight: bold;
   transition: background-color 0.3s ease;
-  width: 100%; /* Botões ocupam a largura total do seu container */
-  max-width: 250px; /* Limita a largura máxima dos botões */
-  margin: 0; /* Remove margens padrão se houver */
+  width: 100%;
+  max-width: 250px;
+  margin: 0;
 }
 
 .button:hover {
-  background-color: #ff0000; /* Escurece no hover */
+  background-color: #ff0000;
 }
 
-/* Estilos para a div da direita (logotipo) */
 .logo-right {
-  flex: 1; /* Permite que esta div ocupe o espaço disponível */
+  flex: 1;
   display: flex;
-  justify-content: center; /* Centraliza a logo horizontalmente */
-  align-items: center; /* Centraliza a logo verticalmente */
+  justify-content: center;
+  align-items: center;
 }
 
 .welcome-logo {
-  max-width: 350px; /* Tamanho da sua logo, ajuste conforme necessário */
+  max-width: 350px;
   height: auto;
-  display: block; /* Remove espaços extras se a imagem for inline */
+  display: block;
 }
 
-/* Medias queries para telas menores */
 @media (max-width: 768px) {
   .welcome-container {
-    flex-direction: column; /* Coloca os itens um abaixo do outro em telas pequenas */
+    flex-direction: column;
     padding: 20px;
     gap: 30px;
   }
 
   .welcome-card-left, .logo-right {
-    flex: none; /* Remove o flex grow para que ocupem a largura total */
+    flex: none;
     width: 100%;
-    max-width: none; /* Remove o limite de largura para ocupar o espaço disponível */
+    max-width: none;
   }
   
   .welcome-card-left {
@@ -279,6 +276,6 @@
   }
 
   .welcome-logo {
-    max-width: 250px; /* Ajusta o tamanho da logo para telas menores */
+    max-width: 250px;
   }
 }

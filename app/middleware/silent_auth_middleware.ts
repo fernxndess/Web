@@ -13,7 +13,6 @@ export default class SilentAuthMiddleware {
      * Feel free to use any guard of your choice.
      */
     
-    // A LINHA MAIS IMPORTANTE É ESTA:
     await ctx.auth.check()
 
     /**
